@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPageAdminUpdate.cshtml";
+}
+
+@section Title{
+    Danh sách tài khoản
+}
+                <div class="box-header">
+                    <h3 class="box-title">Data Table With Full Features</h3>
+                </div>
+                <div class="box-header"><h3>@Html.ActionLink("Thêm mới", "Create")</h3></div>
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Birthday</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>@item.Name</td>
+                                    <td><img src=@item.Image width="48" height="48"></td>
+                                    <td>@item.Username</td>
+                                    <td>@item.Password</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.Birthday</td>
+                                    <td>@item.Type</td>
+                                    <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Kích hoạt" : "Khóa")</a></td>
+                                    <td style="text-align:center">
+                                        @Html.ActionLink("Edit", "Edit", new { ID = item.ID }) |
+                                        @*@Html.ActionLink("Delete", "Delete", new { ID = item.ID }, new { @class = "btn btn-block btn-outline-danger btn-sm" })*@
+                                        <a href="#" class="delete" data-id="@item.ID"><span style="color: red">Delete</span></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+@section JsFooter {
+<script src="~/Content/Admin/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="~/Content/Admin/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="~/Content/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Content/Admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="~/Content/Admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="~/Content/Admin/plugins/fastclick/fastclick.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Content/Admin/dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/Content/Admin/dist/js/demo.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<!-- page script -->
+<script>
+      $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false
+        });
+      });
+</script>
+    <script src="~/Scripts/AccoutController.js"></script>
+}
+

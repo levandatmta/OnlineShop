@@ -1,0 +1,14 @@
+﻿@model List<Model.EF.Category>
+<h3>Categories</h3>
+<ul class="product-categories">
+    @foreach (var item in Model)
+    {
+        <li><a href="#">@item.Name</a> <span class="count">(14)</span></li>
+    }
+    @*<li><a href="#">Blucher Shoe</a> <span class="count">(14)</span></li>
+    <li><a href="#">Clog Shoe</a> <span class="count">(2)</span></li>
+    <li><a href="#">Snow Boot Shoe</a> <span class="count">(2)</span></li>
+    <li><a href="#">Galesh Shoe</a> <span class="count">(11)</span></li>
+    <li><a href="#">pataugas Shoe</a> <span class="count">(3)</span></li>
+    <li><a href="#">Jazz Shoe</a> <span class="count">(3)</span></li>*@
+</ul>
