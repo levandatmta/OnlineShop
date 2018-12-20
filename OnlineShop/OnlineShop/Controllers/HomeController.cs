@@ -11,9 +11,6 @@ namespace OnlineShop.Controllers
     {
         public ActionResult Index()
         {
-            var dao = new ProductDao();
-            ViewBag.NewProduct = dao.ListNewProduct(2);
-            ViewBag.Product = dao.ListNewProduct(8);
             return View();
         }
 

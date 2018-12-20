@@ -1,17 +1,85 @@
-﻿@{
+﻿@model Model.EF.FeedBack
+@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutPageClientMain.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<div class="ads-grid_shop">
+    <div class="shop_inner_inf">
+        <h3 class="head">Contact Us</h3>
+        <p class="head_para">Add Some Description</p>
+        <div class="inner_section_w3ls">
+            <div class="col-md-7 contact_grid_right">
+                <h6>Please fill this form to contact with us.</h6>
+                @using (Html.BeginForm("About", "Home", FormMethod.Post))
+                {
+                    <div class="col-md-6 col-sm-6 contact_left_grid">
+                        @Html.TextBoxFor(m => m.Name, new { @placeholder = "Name", @autofocus = "autofocus", @required = "" })
+                        @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email", @autofocus = "autofocus", @required = "" })
+                        @*<input type="text" name="Name" placeholder="Name" required="">
+                        <input type="email" name="Email" placeholder="Email" required="">*@
+                    </div>
+                    <div class="col-md-6 col-sm-6 contact_left_grid">
+                        @Html.TextBoxFor(m => m.Phone, new { @placeholder = "Telephone", @autofocus = "autofocus", @required = "" })
+                        @Html.TextBoxFor(m => m.Address, new { @placeholder = "Address", @autofocus = "aotufocus", @required = ""})
+                        @*<input type="text" name="Telephone" placeholder="Telephone" required="">
+                        <input type="text" name="Address" placeholder="Address" required="">*@
+                    </div>
+                    <div class="clearfix"> </div>
+                        @Html.TextAreaFor(m => m.Content, new {@placeholder = "Message..."})
+                    @*<textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>*@
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Clear">
+                }
+            </div>
+            <div class="col-md-5 contact-left">
+                <h6>Contact Info</h6>
+                <div class="visit">
+                    <div class="col-md-2 col-sm-2 col-xs-2 contact-icon">
+                        <span class="fa fa-home" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-10 contact-text">
+                        <h4>Visit us</h4>
+                        <p>236 Hoang Quoc Viet, Cau Giay, Ha Noi</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mail-us">
+                    <div class="col-md-2 col-sm-2 col-xs-2 contact-icon">
+                        <span class="fa fa-envelope" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-10 contact-text">
+                        <h4>Mail us</h4>
+                        <p><a href="Jusociu.250296@gmail.com"></a></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="call">
+                    <div class="col-md-2 col-sm-2 col-xs-2 contact-icon">
+                        <span class="fa fa-phone" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-10 contact-text">
+                        <h4>Call us</h4>
+                        <p>0961108721</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="visit">
+                    <div class="col-md-2 col-sm-2 col-xs-2 contact-icon">
+                        <span class="fa fa-fax" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-10 contact-text">
+                        <h4>Fax</h4>
+                        <p>+1804426349</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+        </div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <div class="clearfix"></div>
+
+    </div>
+</div>
+
